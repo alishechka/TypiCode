@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/id_comment"
+        android:icon="@drawable/ic_comment_black_24dp"
+        android:title="@string/comment" />
+    <item
+        android:id="@+id/id_post"
+        android:icon="@drawable/ic_local_post_office_black_24dp"
+        android:title="@string/post" />
+</menu>

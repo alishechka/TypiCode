@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TypiCode</string>
+    <string name="comment">comment</string>
+    <string name="post">post</string>
+</resources>
