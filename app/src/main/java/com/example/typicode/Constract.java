@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface Constract {
 
-    interface View {
-        void showRepo(List<PostModel>list);
+    interface View<T> {
+        void showRepo(List<T> list);
 
         void onError(Throwable t);
 
@@ -19,8 +19,8 @@ public interface Constract {
         void onDestroyCalled();
     }
 
-    interface RetroListener {
-        void onSuccess(List<PostModel> list);
+    interface RetroListener<T> {
+        void onSuccess(List<T> list);
 
         void onFailure(Throwable t);
     }

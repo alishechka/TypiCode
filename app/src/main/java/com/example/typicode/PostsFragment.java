@@ -16,7 +16,7 @@ import com.example.typicode.model.PostModel;
 
 import java.util.List;
 
-public class PostsFragment extends Fragment implements Constract.View {
+public class PostsFragment extends Fragment implements Constract.View<PostModel> {
     private RecyclerView recyclerView;
     private PostAdapter adapter;
     private Constract.Presenter presenter;

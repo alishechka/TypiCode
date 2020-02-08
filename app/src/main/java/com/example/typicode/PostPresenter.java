@@ -5,7 +5,7 @@ import com.example.typicode.network.RetrofitService;
 
 import java.util.List;
 
-public class PostPresenter implements Constract.Presenter, Constract.RetroListener {
+public class PostPresenter implements Constract.Presenter, Constract.RetroListener <PostModel>{
 
     private Constract.View view;
     private RetrofitService retrofitService;
