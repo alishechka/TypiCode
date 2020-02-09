@@ -7,8 +7,13 @@ public interface Contract {
     interface View<T> {
         void showRepo(List<T> list);
 
-        void onError(Throwable t);
+        void hideProgressBar();
 
+        void showProgressBar();
+
+        void showError(Throwable t);
+
+        void hideError();
     }
 
     interface Presenter {

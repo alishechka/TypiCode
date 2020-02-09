@@ -1,4 +1,4 @@
-package com.example.typicode;
+package com.example.typicode.posts;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.typicode.R;
 import com.example.typicode.model.PostModel;
 
 import java.util.List;
@@ -29,7 +30,9 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.myViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull myViewHolder holder, int position) {
-        holder.textView.setText(models.get(position).getTitle());
+        holder.title.setText(models.get(position).getTitle());
+        holder.bodyText.setText(models.get(position).getBody());
+
 
     }
 
@@ -39,11 +42,14 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.myViewHolder> 
     }
 
     public class myViewHolder extends RecyclerView.ViewHolder {
-        private TextView textView;
+        private TextView title;
+        private TextView bodyText;
+
 
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
-            textView = itemView.findViewById(R.id.tv_post_card);
+            title = itemView.findViewById(R.id.tv_post_title);
+            bodyText = itemView.findViewById(R.id.tv_post_body);
         }
     }
 }

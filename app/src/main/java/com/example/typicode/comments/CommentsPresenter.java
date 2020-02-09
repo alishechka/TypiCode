@@ -1,5 +1,6 @@
-package com.example.typicode;
+package com.example.typicode.comments;
 
+import com.example.typicode.Contract;
 import com.example.typicode.network.RetrofitService;
 
 import java.util.List;
@@ -15,16 +16,20 @@ public class CommentsPresenter implements Contract.Presenter, Contract.RetroList
 
     @Override
     public void onSuccess(List<CommentsPresenter> list) {
+        view.hideError();
+        view.hideProgressBar();
         view.showRepo(list);
     }
 
     @Override
     public void onFailure(Throwable t) {
-        view.onError(t);
+        view.hideProgressBar();
+        view.showError(t);
     }
 
     @Override
     public void getRepo() {
+        view.showProgressBar();
         retrofitService = new RetrofitService(this);
         retrofitService.getCommentRetroCall();
     }

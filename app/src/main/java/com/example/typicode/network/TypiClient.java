@@ -12,6 +12,6 @@ public interface TypiClient {
     @GET("posts")
     Call<List<PostModel>> getPosts();
 
-    @GET("comments")
+    @GET("posts/1/comments")
     Call<List<CommentModel>> getComments();
 }

@@ -1,4 +1,4 @@
-package com.example.typicode;
+package com.example.typicode.comments;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.typicode.R;
 import com.example.typicode.model.CommentModel;
 
 import java.util.List;
@@ -29,7 +30,8 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.myView
 
     @Override
     public void onBindViewHolder(@NonNull myViewHolder holder, int position) {
-        holder.textView.setText(models.get(position).getEmail());
+        holder.name.setText(models.get(position).getName());
+        holder.bodyText.setText(models.get(position).getBody());
 
     }
 
@@ -39,11 +41,14 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.myView
     }
 
     public class myViewHolder extends RecyclerView.ViewHolder {
-        private TextView textView;
+        private TextView name;
+        private TextView bodyText;
+
 
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
-            textView = itemView.findViewById(R.id.tv_comment_card);
+            name = itemView.findViewById(R.id.tv_comment_name);
+            bodyText=itemView.findViewById(R.id.tv_comment_body);
         }
     }
 }

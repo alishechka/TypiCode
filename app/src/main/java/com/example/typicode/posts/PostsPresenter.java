@@ -1,5 +1,6 @@
-package com.example.typicode;
+package com.example.typicode.posts;
 
+import com.example.typicode.Contract;
 import com.example.typicode.model.PostModel;
 import com.example.typicode.network.RetrofitService;
 
@@ -16,16 +17,21 @@ public class PostsPresenter implements Contract.Presenter, Contract.RetroListene
 
     @Override
     public void onSuccess(List<PostModel> list) {
+        view.hideError();
+        view.hideProgressBar();
         view.showRepo(list);
+
     }
 
     @Override
     public void onFailure(Throwable t) {
-        view.onError(t);
+        view.hideProgressBar();
+        view.showError(t);
     }
 
     @Override
     public void getRepo() {
+        view.showProgressBar();
         retrofitService = new RetrofitService(this);
         retrofitService.getPostRetroCall();
     }
