@@ -2,6 +2,7 @@ package com.example.typicode;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -43,18 +44,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener itemSelectedListener =
-            new BottomNavigationView.OnNavigationItemSelectedListener() {
-                @Override
-                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                    switch (item.getItemId()) {
-                        case R.id.id_comment:
-                            getCommentFragment();
-                            break;
-                        case R.id.id_post:
-                            getPostFragment();
-                            break;
-                    }
-                    return true;
+            item -> {
+                switch (item.getItemId()) {
+                    case R.id.id_comment:
+                        getCommentFragment();
+                        break;
+                    case R.id.id_post:
+                        getPostFragment();
+                        break;
                 }
+                return true;
             };
 }
