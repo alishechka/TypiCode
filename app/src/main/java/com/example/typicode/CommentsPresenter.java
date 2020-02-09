@@ -26,7 +26,7 @@ public class CommentsPresenter implements Contract.Presenter, Contract.RetroList
     @Override
     public void getRepo() {
         retrofitService = new RetrofitService(this);
-        retrofitService.getRetroCall();
+        retrofitService.getCommentRetroCall();
     }
 
     @Override

@@ -27,7 +27,7 @@ public class PostsPresenter implements Contract.Presenter, Contract.RetroListene
     @Override
     public void getRepo() {
         retrofitService = new RetrofitService(this);
-        retrofitService.getRetroCall();
+        retrofitService.getPostRetroCall();
     }
 
     @Override
