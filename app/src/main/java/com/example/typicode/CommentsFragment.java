@@ -4,14 +4,22 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-public class CommentsFragment extends Fragment {
-    private TextView hello;
+import com.example.typicode.model.CommentModel;
+
+import java.util.List;
+
+public class CommentsFragment extends Fragment implements Contract.View<CommentModel> {
+    private RecyclerView recyclerView;
+    private CommentsAdapter adapter;
+    private Contract.Presenter presenter;
 
     @Nullable
     @Override
@@ -22,7 +30,26 @@ public class CommentsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        recyclerView = view.findViewById(R.id.rv_display_comment);
+        presenter = new CommentsPresenter(this);
+        presenter.getRepo();
+    }
 
-        hello = view.findViewById(R.id.tv_comment);
+    @Override
+    public void showRepo(List<CommentModel> list) {
+        adapter = new CommentsAdapter(list);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void onError(Throwable t) {
+        Toast.makeText(getContext(), "no connection", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onDestroy() {
+        presenter.onDestroyCalled();
+        super.onDestroy();
     }
 }

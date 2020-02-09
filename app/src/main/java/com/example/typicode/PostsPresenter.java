@@ -5,13 +5,23 @@ import com.example.typicode.network.RetrofitService;
 
 import java.util.List;
 
-public class PostPresenter implements Constract.Presenter, Constract.RetroListener <PostModel>{
+public class PostsPresenter implements Contract.Presenter, Contract.RetroListener<PostModel> {
 
-    private Constract.View view;
+    private Contract.View view;
     private RetrofitService retrofitService;
 
-    public PostPresenter(Constract.View view) {
+    public PostsPresenter(Contract.View view) {
         this.view = view;
+    }
+
+    @Override
+    public void onSuccess(List<PostModel> list) {
+        view.showRepo(list);
+    }
+
+    @Override
+    public void onFailure(Throwable t) {
+        view.onError(t);
     }
 
     @Override
@@ -25,13 +35,5 @@ public class PostPresenter implements Constract.Presenter, Constract.RetroListen
         view = null;
     }
 
-    @Override
-    public void onSuccess(List<PostModel> list) {
-        view.showRepo(list);
-    }
 
-    @Override
-    public void onFailure(Throwable t) {
-        view.onError(t);
-    }
 }

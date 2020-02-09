@@ -16,11 +16,10 @@ import com.example.typicode.model.PostModel;
 
 import java.util.List;
 
-public class PostsFragment extends Fragment implements Constract.View<PostModel> {
+public class PostsFragment extends Fragment implements Contract.View<PostModel> {
     private RecyclerView recyclerView;
     private PostAdapter adapter;
-    private Constract.Presenter presenter;
-
+    private Contract.Presenter presenter;
 
     @Nullable
     @Override
@@ -32,9 +31,8 @@ public class PostsFragment extends Fragment implements Constract.View<PostModel>
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         recyclerView = view.findViewById(R.id.rv_display_post);
-        presenter = new PostPresenter(this);
+        presenter = new PostsPresenter(this);
         presenter.getRepo();
-
     }
 
     @Override
@@ -47,5 +45,12 @@ public class PostsFragment extends Fragment implements Constract.View<PostModel>
     @Override
     public void onError(Throwable t) {
         Toast.makeText(getContext(), "no connection", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onDestroy() {
+        Toast.makeText(getContext(), "Destroyed", Toast.LENGTH_LONG).show();
+        presenter.onDestroyCalled();
+        super.onDestroy();
     }
 }

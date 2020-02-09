@@ -1,10 +1,8 @@
 package com.example.typicode;
 
-import com.example.typicode.model.PostModel;
-
 import java.util.List;
 
-public interface Constract {
+public interface Contract {
 
     interface View<T> {
         void showRepo(List<T> list);
