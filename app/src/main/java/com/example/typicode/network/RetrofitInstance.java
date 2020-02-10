@@ -1,9 +1,9 @@
 package com.example.typicode.network;
 
 import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import okhttp3.logging.HttpLoggingInterceptor;
 
 public class RetrofitInstance {
     private static Retrofit retrofit;

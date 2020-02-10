@@ -29,12 +29,14 @@ public class RetrofitService {
                     retroListener.onFailure(new Throwable());
                 }
             }
+
             @Override
             public void onFailure(Call<List<PostModel>> call, Throwable t) {
                 retroListener.onFailure(t);
             }
         });
     }
+
     public void getCommentRetroCall() {
         TypiClient client = RetrofitInstance.getClient();
         Call<List<CommentModel>> call = client.getComments();
@@ -47,6 +49,7 @@ public class RetrofitService {
                     retroListener.onFailure(new Throwable());
                 }
             }
+
             @Override
             public void onFailure(Call<List<CommentModel>> call, Throwable t) {
                 retroListener.onFailure(t);

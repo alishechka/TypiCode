@@ -72,7 +72,7 @@ public class PostsFragment extends Fragment implements Contract.View<PostModel> 
 
     @Override
     public void showError(Throwable t) {
-        Toast.makeText(getContext(), "no Connection", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), getString(R.string.connection_error_message), Toast.LENGTH_SHORT).show();
         errorMessage.setText(t.getMessage());
         errorLayout.setVisibility(View.VISIBLE);
 

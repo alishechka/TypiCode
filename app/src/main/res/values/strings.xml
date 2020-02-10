@@ -3,4 +3,5 @@
     <string name="comment">comment</string>
     <string name="post">post</string>
     <string name="error_message">no connection, please try again</string>
+    <string name="connection_error_message">no Connection</string>
 </resources>
